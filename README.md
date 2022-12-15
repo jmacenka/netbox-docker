@@ -1,4 +1,19 @@
-# netbox-docker
+# netbox-docker - Fork by Jan Macenka
+
+## Preamble
+
+This is a modified version of the netbox-docker Repository, adapted to individual need by Jan Macenka.
+
+The following changes were made:
+- Changed the volume-mounts to volume-binds instead
+- Created the necessary directories that will hold the data instead of the docker volumes
+- Added a backup script to generate cyclic snapshots for the docker volume version
+- Added a backup script to generate cyclic snapshots for the volume bind version
+- Edited the .geitignore to noto push production data to the repository
+
+Edited by Jan Macenka @ 15 Dec 2022
+
+## Original project
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/netbox-community/netbox-docker)][github-release]
 [![GitHub stars](https://img.shields.io/github/stars/netbox-community/netbox-docker)][github-stargazers]
