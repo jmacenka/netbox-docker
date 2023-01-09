@@ -9,7 +9,7 @@ echo "********************************"
 
 echo "NOW: Starting Backup-Job for NetBox..."
 timestamp=$(date +%Y%m%d_%H%M%S)
-application_location="/home/ad005.onehc.net/z004mc4v-a01/dev_tools_in_production/netbox/netbox-me"
+application_location="/path/to/application/directory" # Provide the path to your application directory
 
 echo "NOW: Stopping all containers related to NetBox..."
 docker stop $(docker ps -aq -f name=netbox)
@@ -35,8 +35,5 @@ docker run --rm \
 echo "NOW: Restarting all containers related to NetBox..."
 docker restart $(docker ps -aq -f name=netbox)
 
-#echo "NOW: Copying Backup-files to network-share..."
-#sudo cp -r /home/Z004MC4V-A01/netbox-docker-ME-instance/netbox-docker-ME-instance/data/backups/$timestamp/ /mnt/pv_scm/Tools/OP/Backups/NetBox/ME-instanz/
-# TODO: Mount Networkshare in a way that does not require SU-Privileged users
-
 echo "DONE: Backup-Job done..."
+echo "NOTE: Please be aware that this backup resides on your server/machine, please manually take care to also store backups outside this machine!"
