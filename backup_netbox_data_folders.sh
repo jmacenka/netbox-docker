@@ -26,19 +26,19 @@ docker stop $(docker ps -aq -f name=netbox)
 
 echo "NOW: Backuping media files..."
 docker run --rm \
-        -v netbox-media-files:/data:ro \
+        -v netbox-docker_netbox-media-files:/data:ro \
         -v $backup_location:/backup \
         debian:stretch-slim bash -c "mkdir -p /backup/$ && cd /data && /bin/tar -czvf /backup/media_backup.tar.gz .";
 
 echo "NOW: Backuping postgres state..."
 docker run --rm \
-        -v netbox-postgres-data:/data:ro \
+        -v netbox-docker_netbox-postgres-data:/data:ro \
         -v $backup_location:/backup \
         debian:stretch-slim bash -c "mkdir -p /backup/$ && cd /data && /bin/tar -czvf /backup/postgres_backup.tar.gz .";
         
 echo "NOW: Backuping redis state..."
 docker run --rm \
-        -v netbox-redis-data:/data:ro \
+        -v netbox-docker_netbox-redis-data:/data:ro \
         -v $backup_location:/backup \
         debian:stretch-slim bash -c "mkdir -p /backup/$ && cd /data && /bin/tar -czvf /backup/redis_backup.tar.gz .";
 
